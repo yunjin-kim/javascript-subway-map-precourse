@@ -8,9 +8,25 @@ export default class StationControlController {
     this.stationControlField = document.createElement('div');
     this.stationControlField.innerHTML = stationControlTemplete;
     this.$app.append(this.stationControlField);
+    this.render();
     this.inputEvent();
+    this.deleteEvent();
   }
 
+  render() {
+    this.renderStationList();
+  }
 
+  setLocalStationName() {
+    this.stationControlModel.toLocalStationName(this.stationName);
+  }
+
+  getLocalStationName() {
+    this.stationNameList = this.stationControlModel.fromLocalStationName();
+  }
+
+  setLocalDeleteStation() {
+    this.stationControlModel.handleDeleteStation(this.deleteStation);
+  }
 
 }
